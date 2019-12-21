@@ -1,0 +1,4 @@
+
+CF = A・B + B・CY_IN + CY_IN・A
+
+OF = A・B・_C + _A・_B・C
