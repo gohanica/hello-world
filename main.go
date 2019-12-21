@@ -17,7 +17,9 @@ func main() {
 		templates: template.Must(template.ParseGlob("html/*.html")),
 	}
 	e.Renderer = t
-	e.GET("/hello", Hello)
+	//e.POST("/hello", Hello)
+
+	e.GET("/hello:id", Hello)
 	e.Logger.Fatal(e.Start(":8080"))
 
 }
@@ -30,7 +32,12 @@ func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Con
 	return t.templates.ExecuteTemplate(w, name, data)
 
 }
+func getUser(c echo.Context) error {
+	// User ID from path `users/:id`
+	id := c.Param("id")
+  return c.String(http.StatusOK, id)
 
 func Hello(c echo.Context) error {
-	return c.Render(http.StatusOK, "hello", "World")
+	
+	return c.Render(http.StatusOK, "hello", "Worldaaaaaaaaa"+id)
 }
