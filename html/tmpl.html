@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<title>テスト</title>
+
+</head>
+<body>
+
+<h1>フォーラムへようこそ！</h1>
+<form method="post" action="http://localhost:25565/welcome">
+<input type="text" name="username">
+<input type="submit" value="ユーザー登録">
+</form>
+<p>
+Name:{{.User.Name}}<br>
+ID:{{.User.Id}}
+</p>
+<p>--------------------------------------------</p>
+<p>
+This Forum is {{.Contents.Name}}<br>
+{{.Contents.Num}}Contents
+
+</p>
+<p>--------------------------------------------</p>
+{{range .Contents.AllContents}}
+{{if .IsImage}}
+<p>{{.Type}}{{.Contributer.Id}}{{.Date}}</p>
+<img src={{.Content}}>
+<p>--------------------------------------------</p>
+{{else}}
+<p>{{.Type}}{{.Contributer.Id}}{{.Date}}</p>
+{{.Content}}
+<p>--------------------------------------------</p>
+{{end}}
+{{end}}
+<form action="http://localhost:25565/post"method="post" enctype="multipart/form-data">
+<input type="file" name="posted_file"accept="image/*">
+<input type="submit" value="画像を投稿">
+</form>
+<form action="http://localhost:25565/post"method="post" >
+<input type="text" name="posted_text">
+<input type="submit" value="文字を投稿">
+</form>
+
+</body>
+
+</html>
