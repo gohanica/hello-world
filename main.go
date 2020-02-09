@@ -8,4 +8,4 @@ func main() {
 }
 
 // hennkou
-//bokumo!
+// pullしてみて
