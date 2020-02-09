@@ -11,6 +11,7 @@ import (
 //main関数
 func main() {
 
+//　github連携
 	e := echo.New()
 
 	t := &Template{
