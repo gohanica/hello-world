@@ -12,6 +12,7 @@ import (
 func main() {
 
 //　github連携
+//ここ追加したよ～
 	e := echo.New()
 
 	t := &Template{
